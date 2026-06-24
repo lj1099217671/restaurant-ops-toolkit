@@ -1,55 +1,139 @@
-# Roadmap
+# 产品路线图 | Product roadmap
 
-## 0.1 — metric kernel
+## 产品主线
 
-- Stable CSV contract.
-- Revenue, store average, orders, average ticket.
-- Service-type and channel reconciliation.
-- Period comparison.
-- Synthetic examples and CI.
+本项目不是分别堆积“Excel 工具、指标脚本和看板”，而是逐步形成一条可复核的餐饮经营工作流：
 
-## 0.2 — import and data quality
+```text
+Excel / authorized export
+        ↓
+数据质量闸门
+        ↓
+标准经营指标
+        ↓
+异常与预警规则
+        ↓
+门店一页纸 / 管理报告
+        ↓
+人工复核与持续改进
+```
 
-- Configurable column mapping.
-- Excel import.
-- Missing-field and duplicate-row diagnostics.
-- Store identity mapping with human review.
-- Chinese metric glossary.
+## v0.1 — 指标内核 | Metric kernel
 
-## 0.3 — operating analysis
+已完成：
 
-- Brand, city, store, and manager grains.
-- Same-store, new-store, closed-store, and conversion-store logic.
-- Weekday/weekend and holiday comparison.
-- Channel mix and contribution analysis.
+- 标准 CSV 数据契约；
+- 营业实收、店均、订单、客单价；
+- 堂食、外卖、外带闭合校验；
+- 渠道归并和渠道闭合校验；
+- 期间对比；
+- 合成样例、自动测试和安全扫描。
 
-## 0.4 — reputation operations
+## v0.2 — Excel 到经营预警一页纸 | Excel-to-alert vertical slice
 
-- Review response timeliness.
-- Full-text issue taxonomy with auditable evidence.
-- Rule-based baseline plus optional model-assisted classification.
-- Manual-review queue instead of forced automatic decisions.
+这是当前最高优先级。目标不是只“读入 Excel”，而是让普通餐饮从业者第一次使用时就能完成一条完整链路。
 
-## 0.5 — reporting
+### 输入
 
-- Excel management pack.
-- One-page HTML/PDF report.
-- Reproducible charts and validation manifests.
-- Pluggable bilingual templates.
+- 用户有权导出的 `.xlsx` 文件；
+- 可配置工作表、表头行和列名映射；
+- 全部公开示例使用合成数据。
 
-## 1.0 — ecosystem
+### 数据质量闸门
 
-- Adapter interface and certification tests.
-- Public sample adapters for authorized file exports.
-- Plugin architecture for private POS connectors.
-- Documentation for restaurant operators, analysts, and software vendors.
+检查：
 
-## Commercially sustainable boundary
+- 必填字段缺失；
+- 门店或日期主键为空；
+- 同一门店同一日期重复；
+- 日期断档和非法日期；
+- 金额、订单等字段格式错误；
+- 负数或明显不合理值；
+- 营业额与订单关系异常；
+- 堂食、外卖、外带闭合差额；
+- 渠道闭合差额；
+- 疑似同店多名称；
+- 本期与对比期门店范围变化。
 
-Keep the calculation kernel open. Potential paid value can live in:
+输出总体结论：
 
-- managed private connectors;
-- hosted scheduling and monitoring;
-- enterprise permissions and audit logs;
-- branded report templates;
-- implementation, training, and data-governance services.
+- `PASS / 通过`：可进入分析；
+- `CONDITIONAL / 有条件通过`：部分结论需标注；
+- `BLOCKED / 不通过`：修复后才能生成正式经营结论。
+
+### 经营输出
+
+- 核心 KPI；
+- 渠道结构；
+- 店均和期间变化；
+- 数据质量警告；
+- 门店异常提示；
+- 一页 HTML 报告，后续扩展到 PDF/Excel。
+
+### v0.2 完成标准
+
+- 一条命令处理合成 Excel；
+- 同时输出机器可读 JSON 和人可读数据质量报告；
+- 数据不通过时，不静默生成误导性结论；
+- 至少生成一个可打印的经营预警一页纸；
+- 示例、测试、口径和限制全部公开可复现。
+
+## v0.3 — 门店生命周期与同店分析 | Store lifecycle
+
+- 品牌、城市、门店和负责人粒度；
+- 同店、新店、闭店和流失店；
+- 品牌转换延续店；
+- 店均、同店店均和堂食店均；
+- 工作日、周末和节假日比较；
+- 门店范围人工确认队列。
+
+## v0.4 — 评价预警体系 | Reputation early warning
+
+- 评价数据匿名化输入契约；
+- 好评率和中差评率；
+- 中差评回复及时性；
+- 问题分类及原始证据引用；
+- 规则基线与可选模型辅助；
+- 模糊评价进入人工复核队列；
+- 营业预警与评价预警合并为门店一页纸。
+
+评价模块不能只按关键词或星级自动下结论。最终设计必须保留语义依据、正向语境保护和人工复核。
+
+## v0.5 — 管理报告与批量交付 | Reporting
+
+- Excel 管理包；
+- 多门店批量一页纸；
+- HTML/PDF 输出；
+- 可复现图表和验证清单；
+- 双语模板；
+- 按城市、区域或负责人分组。
+
+## v1.0 — 适配器生态 | Adapter ecosystem
+
+- 公开适配器接口和认证测试；
+- 经授权的文件导入模板；
+- 私有 POS 连接器插件；
+- 餐饮经营指标中文词典；
+- 面向运营、分析师和软件服务商的文档。
+
+## 开源与商业边界
+
+开源保留：
+
+- 数据契约；
+- 指标定义和计算内核；
+- 数据质量规则；
+- 合成样例；
+- 基础报告和适配器规范。
+
+私有或商业价值可以保留在：
+
+- 专有系统连接器；
+- 托管调度和自动监控；
+- 企业权限与审计；
+- 品牌化报告模板；
+- 实施、培训和数据治理服务。
+
+---
+
+The roadmap prioritizes a complete, auditable workflow over disconnected features. The next milestone is an Excel-to-alert vertical slice: import authorized spreadsheets, gate analysis on data quality, calculate deterministic operating metrics, and produce a reproducible one-page warning report.
