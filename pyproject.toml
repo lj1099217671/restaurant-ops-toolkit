@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "restaurant-ops-toolkit"
+version = "0.1.0"
+description = "Vendor-neutral metrics and validation for multi-store restaurant operations."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Restaurant Ops Toolkit contributors" }
+]
+keywords = ["restaurant", "operations", "analytics", "pos", "retail"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business",
+]
+
+[project.scripts]
+restaurant-ops = "restaurant_ops_toolkit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "metric_basis": "revenue",
+  "residual_channel": "channel_offline",
+  "missing_fields": "warn_and_zero",
+  "channels": {
+    "channel_group_buy": [
+      "payment_group_buy",
+      "payment_voucher_redeemed"
+    ],
+    "channel_short_video": [
+      "payment_short_video_coupon",
+      "payment_short_video_redeemed"
+    ],
+    "channel_member": [
+      "payment_member_balance",
+      "payment_member_coupon"
+    ],
+    "channel_delivery": [
+      "payment_delivery_platform_a",
+      "payment_delivery_platform_b"
+    ]
+  }
+}

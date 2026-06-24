@@ -1,0 +1,3 @@
+date,store_id,store_name,city,revenue,dine_in,delivery,takeaway,orders,payment_group_buy,payment_voucher_redeemed,payment_short_video_coupon,payment_short_video_redeemed,payment_member_balance,payment_member_coupon,payment_delivery_platform_a,payment_delivery_platform_b
+2026-06-01,S001,示例门店一,示例城市,12000,8500,3000,500,240,2200,1000,900,300,1500,300,1800,1200
+2026-06-01,S002,示例门店二,示例城市,9000,6000,2600,400,190,1700,800,600,200,1000,200,1600,1000

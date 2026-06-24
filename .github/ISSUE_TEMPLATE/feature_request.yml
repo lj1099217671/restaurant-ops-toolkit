@@ -1,0 +1,27 @@
+name: Feature request
+description: Propose a vendor-neutral restaurant operations capability.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: Proposals must avoid private POS endpoints, credentials, and real merchant data.
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Operating workflow
+      description: Which restaurant operating decision or recurring task should this improve?
+    validations:
+      required: true
+  - type: textarea
+    id: metric
+    attributes:
+      label: Metric definition
+      description: Define inputs, calculation, unit, denominator, and exclusions.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Expected value
+      description: Explain time saved, error reduction, or decision improvement.
