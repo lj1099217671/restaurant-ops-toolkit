@@ -67,6 +67,10 @@ Current scope:
 
 Project status: **Alpha**. See the [roadmap](docs/roadmap.md), [methodology](docs/methodology.md), and [data contract](docs/data-contract.md).
 
+Current priority: an **Excel-to-alert vertical slice** that imports an
+authorized workbook, blocks unreliable analysis, calculates operating metrics,
+and produces a reproducible one-page warning report.
+
 ## 快速开始 | Quick start
 
 Requires Python 3.10+.
@@ -155,6 +159,7 @@ tests/        自动测试
 - 想讨论方向：使用 [Discussions](https://github.com/lj1099217671/restaurant-ops-toolkit/discussions)；
 - 想贡献代码：先读 [CONTRIBUTING.md](CONTRIBUTING.md)；
 - 维护者日常操作：读 [中文维护手册](docs/maintainer-guide.zh-CN.md)；
+- 为什么优先做 Excel 到预警一页纸：读 [产品优先级说明](docs/product-priorities.zh-CN.md)；
 - 安全问题：按 [SECURITY.md](SECURITY.md) 私下报告。
 
 ## 开源与商业边界 | Open-core direction
