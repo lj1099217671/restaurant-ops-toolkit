@@ -2,6 +2,13 @@
 
 All notable changes are documented here.
 
+## Unreleased
+
+- Added bilingual project positioning and plain-language documentation.
+- Added governance, support, code of conduct, and pull request guidance.
+- Added methodology documentation covering reliability, validity, and limitations.
+- Added a beginner-oriented maintainer guide.
+
 ## 0.1.0 — 2026-06-24
 
 - Added a vendor-neutral restaurant sales CSV contract.

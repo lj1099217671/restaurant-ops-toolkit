@@ -1,27 +1,27 @@
-name: Feature request
-description: Propose a vendor-neutral restaurant operations capability.
-title: "[Feature]: "
+name: 功能建议 | Feature request
+description: 提出不绑定厂商的餐饮经营能力。
+title: "[Feature] "
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
-      value: Proposals must avoid private POS endpoints, credentials, and real merchant data.
+      value: 不要包含私有 POS 接口、凭据或真实商户数据。Do not include private endpoints, credentials, or merchant data.
   - type: textarea
     id: workflow
     attributes:
-      label: Operating workflow
-      description: Which restaurant operating decision or recurring task should this improve?
+      label: 经营场景 | Operating workflow
+      description: 它要改善哪个餐饮经营决策或重复任务？
     validations:
       required: true
   - type: textarea
     id: metric
     attributes:
-      label: Metric definition
-      description: Define inputs, calculation, unit, denominator, and exclusions.
+      label: 指标口径 | Metric definition
+      description: 说明输入、公式、单位、分母和排除项。
     validations:
       required: true
   - type: textarea
     id: value
     attributes:
-      label: Expected value
-      description: Explain time saved, error reduction, or decision improvement.
+      label: 预期价值 | Expected value
+      description: 说明节省时间、减少错误或改善决策的方式。
