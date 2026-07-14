@@ -110,9 +110,13 @@ python -m restaurant_ops_toolkit.cli channels `
 验证 / Validate:
 
 ```powershell
+python -m pip install -e .
 python scripts/prepublish_scan.py
-python -m unittest discover -s tests -v
+python -m unittest discover -v -s tests
 ```
+
+For source-tree checks without an editable install, use PowerShell's
+`$env:PYTHONPATH='src'` before running `python -m unittest discover -v -s tests`.
 
 ## 为什么结果值得信任？ | Why trust the output?
 
